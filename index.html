@@ -2,305 +2,426 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Zohaib's GitHub Portfolio</title>
-  <meta name="description" content="Projects by Zohaib: a calculus study site, a text RPG in Python, and coursework from 2022 to today.">
+  <meta name="description" content="Projects by Zohaib, bound in a book you can flip through: a calculus study site, a text RPG in Python, cloud and CI labs, and coursework from 2022 to today.">
+  <meta name="theme-color" content="#070606">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='5' fill='%230b0b0c'/%3E%3Cpath d='M3 6.5 11 8v10.5L3 17zM21 6.5 13 8v10.5l8-1.5z' fill='%23d6d2c9'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --paper: #eef2f7;
-      --surface: #ffffff;
-      --ink: #14213d;
-      --slate: #56627a;
-      --line: #d3dbe6;
-      --cobalt: #2649d8;
-      --cobalt-ink: #ffffff;
-      --amber: #b56a00;
-      --panel: #14213d;
-      --panel-ink: #f3f6fb;
-      --panel-soft: #aab6cc;
-      --curve: #8fa8ff;
-      --tangent: #ffc04d;
-    }
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --paper: #0e1626;
-        --surface: #16203a;
-        --ink: #eef2f7;
-        --slate: #a3afc4;
-        --line: #2a3654;
-        --cobalt: #8fa8ff;
-        --cobalt-ink: #0e1626;
-        --amber: #ffc04d;
-        --panel: #1b2747;
-        --panel-ink: #f3f6fb;
-        --panel-soft: #aab6cc;
-      }
-    }
-
-    * { box-sizing: border-box; }
-    html { -webkit-text-size-adjust: 100%; }
-    body {
-      margin: 0;
-      background: var(--paper);
-      color: var(--ink);
-      font-family: "Figtree", system-ui, sans-serif;
-      font-size: 1.0625rem;
-      line-height: 1.6;
-    }
-    a { color: var(--cobalt); text-underline-offset: 0.2em; }
-    a:focus-visible, .button:focus-visible {
-      outline: 3px solid var(--tangent);
-      outline-offset: 3px;
-      border-radius: 4px;
-    }
-    .wrap { max-width: 62rem; margin: 0 auto; padding: 0 1.5rem; }
-
-    h1, h2, h3 {
-      font-family: "Bricolage Grotesque", "Figtree", sans-serif;
-      line-height: 1.08;
-      margin: 0;
-      letter-spacing: -0.015em;
-    }
-
-    /* Top bar */
-    .top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding-top: 1.5rem;
-      padding-bottom: 1.5rem;
-      font-weight: 500;
-    }
-    .top span { color: var(--slate); }
-
-    /* Intro */
-    .intro { padding-top: 4rem; padding-bottom: 4.5rem; }
-    .intro h1 {
-      font-size: clamp(2.75rem, 9vw, 6rem);
-      font-weight: 700;
-      max-width: 11ch;
-    }
-    .intro p {
-      max-width: 34rem;
-      margin: 1.75rem 0 0;
-      font-size: 1.1875rem;
-      color: var(--slate);
-    }
-
-    /* Featured project */
-    .feature {
-      background: var(--panel);
-      color: var(--panel-ink);
-      border-radius: 20px;
-      display: grid;
-      grid-template-columns: 1.15fr 1fr;
-      overflow: hidden;
-    }
-    .feature-text { padding: 3rem; }
-    .feature .status {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      margin: 0 0 1.25rem;
-      font-size: 0.9375rem;
-      font-weight: 500;
-      color: var(--tangent);
-    }
-    .feature .status::before {
-      content: "";
-      width: 0.5rem;
-      height: 0.5rem;
-      border-radius: 50%;
-      background: var(--tangent);
-    }
-    .feature h2 { font-size: clamp(2rem, 4.5vw, 3rem); font-weight: 700; }
-    .feature p { color: var(--panel-soft); margin: 1rem 0 0; max-width: 30rem; }
-    .feature ul {
-      margin: 1.5rem 0 0;
-      padding: 0;
-      list-style: none;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0.5rem 1.5rem;
-    }
-    .feature li { border-top: 1px solid rgba(255, 255, 255, 0.16); padding-top: 0.5rem; }
-    .feature .built { font-size: 0.9375rem; margin-top: 1.5rem; }
-    .actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 2rem; }
-    .button {
-      display: inline-block;
-      padding: 0.7rem 1.2rem;
-      border-radius: 999px;
-      font-weight: 600;
-      text-decoration: none;
-      border: 1.5px solid transparent;
-    }
-    .button.primary { background: var(--tangent); color: #14213d; }
-    .button.primary:hover { background: #ffd17f; }
-    .button.quiet { border-color: rgba(255, 255, 255, 0.4); color: var(--panel-ink); }
-    .button.quiet:hover { border-color: var(--panel-ink); }
-
-    .feature-art {
-      display: flex;
-      align-items: flex-end;
-      background:
-        linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px) 0 0 / 100% 2.5rem,
-        linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px) 0 0 / 2.5rem 100%;
-      border-left: 1px solid rgba(255, 255, 255, 0.12);
-    }
-    .feature-art svg { width: 100%; height: auto; display: block; }
-    .curve {
-      fill: none;
-      stroke: var(--curve);
-      stroke-width: 3.5;
-      stroke-linecap: round;
-      stroke-dasharray: 700;
-      stroke-dashoffset: 700;
-      animation: draw 1.6s 0.2s ease-out forwards;
-    }
-    .tangent, .point, .art-label { opacity: 0; animation: appear 0.5s 1.7s ease-out forwards; }
-    .tangent { stroke: var(--tangent); stroke-width: 2.5; stroke-linecap: round; }
-    .point { fill: var(--tangent); }
-    .art-label { fill: var(--panel-ink); font: 500 15px "Figtree", sans-serif; }
-    @keyframes draw { to { stroke-dashoffset: 0; } }
-    @keyframes appear { to { opacity: 1; } }
-    @media (prefers-reduced-motion: reduce) {
-      .curve { animation: none; stroke-dashoffset: 0; }
-      .tangent, .point, .art-label { animation: none; opacity: 1; }
-    }
-
-    /* Project list */
-    .more { padding-top: 5rem; padding-bottom: 2rem; }
-    .more > h2 { font-size: 1.75rem; font-weight: 700; margin-bottom: 1.5rem; }
-    .project {
-      display: grid;
-      grid-template-columns: 7rem 1fr auto;
-      gap: 0.5rem 2rem;
-      align-items: baseline;
-      padding: 1.75rem 0;
-      border-top: 1px solid var(--line);
-    }
-    .project:last-child { border-bottom: 1px solid var(--line); }
-    .project time { color: var(--slate); font-variant-numeric: tabular-nums; }
-    .project h3 { font-size: 1.375rem; font-weight: 500; letter-spacing: -0.01em; }
-    .project p { margin: 0.4rem 0 0; color: var(--slate); max-width: 36rem; }
-    .project .built { font-size: 0.9375rem; color: var(--ink); }
-    .project a { font-weight: 600; white-space: nowrap; }
-
-    footer {
-      padding-top: 3rem;
-      padding-bottom: 3.5rem;
-      color: var(--slate);
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 0.5rem 2rem;
-    }
-
-    @media (max-width: 760px) {
-      .intro { padding-top: 2.5rem; padding-bottom: 3rem; }
-      .feature { grid-template-columns: 1fr; }
-      .feature-text { padding: 2rem 1.5rem; }
-      .feature-art { border-left: 0; border-top: 1px solid rgba(255, 255, 255, 0.12); }
-      .feature ul { grid-template-columns: 1fr; }
-      .project { grid-template-columns: 1fr; gap: 0.25rem; }
-      .project a { margin-top: 0.5rem; justify-self: start; }
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="assets/desk.webp">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="wrap top">
-    <span>Zohaib</span>
-    <a href="https://github.com/ZohaibKhawar">GitHub profile</a>
+  <header class="bar">
+    <a class="brand" href="#" data-go="0" aria-label="Zohaib, back to the front cover">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 5.5 11 7.5v12L2 17.5zM22 5.5 13 7.5v12l9-2z"/></svg>
+      zohaib
+    </a>
+    <a class="pill" href="https://github.com/ZohaibKhawar">GitHub profile</a>
   </header>
 
   <main>
-    <section class="wrap intro">
-      <h1>Zohaib's GitHub Portfolio</h1>
-      <p>I'm a student learning to build software. This page lists what I've made so far, from my first Python exercises in 2022 to a calculus study site that is live today.</p>
-    </section>
+    <div class="intro">
+      <h1>Zohaib's GitHub portfolio, in a book you can flip through</h1>
+      <p>Scroll to turn the pages. Click or tap a page to see the project.</p>
+    </div>
 
-    <section class="wrap" aria-labelledby="calc-title">
-      <article class="feature">
-        <div class="feature-text">
-          <p class="status">Live now</p>
-          <h2 id="calc-title">CalcLearners</h2>
-          <p>A study site for my 12-week calculus course. It covers Calculus 1 to 3 in one place, so I can learn each topic, test myself, and ask questions.</p>
-          <ul>
-            <li>42 lessons across 12 weeks</li>
-            <li>A quiz for every lesson</li>
-            <li>Animated video lessons</li>
-            <li>Q&amp;A forum with voting</li>
-            <li>CalcBot, a study helper chat</li>
-            <li>Optional accounts, no email</li>
-          </ul>
-          <p class="built">Built with Python, Flask, SQLite, HTML, CSS and JavaScript.</p>
-          <div class="actions">
-            <a class="button primary" href="https://zohi29.pythonanywhere.com">Open CalcLearners</a>
-            <a class="button quiet" href="https://github.com/ZohaibKhawar/calculus-learning">View the code</a>
-          </div>
-        </div>
-        <div class="feature-art">
-          <svg viewBox="0 0 400 360" role="img" aria-label="A curve with a tangent line touching it at one point">
-            <path class="curve" d="M20 300 C 110 300, 150 250, 200 180 S 300 50, 385 40"/>
-            <line class="tangent" x1="118" y1="295" x2="282" y2="65"/>
-            <circle class="point" cx="200" cy="180" r="7"/>
-            <text class="art-label" x="216" y="196">slope = f&#8242;(x)</text>
+    <div class="outro" hidden>
+      <p>That was the last page.</p>
+      <button class="pill" type="button" data-go="0">Read it again</button>
+    </div>
+
+    <div class="stage">
+      <div class="desk"></div>
+      <div class="light"></div>
+
+      <div class="world">
+        <div class="prop plant" aria-hidden="true">
+          <svg viewBox="0 0 150 150">
+            <circle cx="75" cy="75" r="62" fill="#55585c"/>
+            <circle cx="75" cy="75" r="62" fill="none" stroke="#80848a" stroke-width="2"/>
+            <circle cx="75" cy="75" r="53" fill="#1c1612"/>
+            <g data-rosette></g>
           </svg>
         </div>
-      </article>
-    </section>
 
-    <section class="wrap more" aria-labelledby="more-title">
-      <h2 id="more-title">More projects</h2>
-
-      <article class="project">
-        <time datetime="2026-10">Oct 2026</time>
-        <div>
-          <h3>Vagrant and Git lab</h3>
-          <p>A virtual machine described in code. One Vagrantfile builds an Ubuntu server, installs Apache and serves a web page, and Git tracks every change to it.</p>
-          <p class="built">Vagrant, VirtualBox, Git, shell</p>
+        <div class="prop pen" aria-hidden="true">
+          <svg viewBox="0 0 26 300">
+            <defs><linearGradient id="pen-body" x1="0" x2="1"><stop offset="0" stop-color="#17181b"/><stop offset=".35" stop-color="#4a4d53"/><stop offset="1" stop-color="#1b1c1f"/></linearGradient></defs>
+            <rect x="7" y="18" width="12" height="16" rx="4" fill="#26282c"/>
+            <rect x="6" y="30" width="14" height="232" rx="6" fill="url(#pen-body)"/>
+            <rect x="6" y="30" width="14" height="9" fill="#8d9199"/>
+            <rect x="17" y="36" width="4" height="74" rx="2" fill="#a9adb4"/>
+            <path d="M7 260h12l-5 34h-2z" fill="#b9bcc2"/>
+            <path d="M12 286h2l-1 10z" fill="#2a2b2e"/>
+          </svg>
         </div>
-        <a href="https://github.com/ZohaibKhawar/vagrant-git-lab">View the code</a>
-      </article>
 
-      <article class="project">
-        <time datetime="2026-09">Sep 2026</time>
-        <div>
-          <h3>Realm of Trials</h3>
-          <p>A text RPG you play in the terminal. Pick one of five heroes, level up, buy healing items and fight a boss on each of ten stages.</p>
-          <p class="built">Python</p>
+        <div class="prop cup" aria-hidden="true">
+          <svg viewBox="0 0 220 190">
+            <defs>
+              <radialGradient id="cup-saucer" cx="40%" cy="34%"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#cdcbc5"/></radialGradient>
+              <radialGradient id="cup-coffee" cx="44%" cy="40%"><stop offset="0" stop-color="#8f5d37"/><stop offset="1" stop-color="#492a16"/></radialGradient>
+            </defs>
+            <circle cx="96" cy="96" r="84" fill="url(#cup-saucer)"/>
+            <circle cx="96" cy="96" r="60" fill="none" stroke="#b9b6b0" stroke-width="1.5" opacity=".7"/>
+            <g transform="rotate(26 96 96)">
+              <rect x="138" y="85" width="52" height="22" rx="11" fill="#f1f0ec" stroke="#c4c1bb"/>
+              <circle cx="96" cy="96" r="52" fill="#f7f6f2" stroke="#d3d0ca"/>
+              <circle cx="96" cy="96" r="44" fill="url(#cup-coffee)"/>
+              <path d="M96 121c-17-12-26-21-26-32 0-8 6-14 13-14 5 0 10 3 13 8 3-5 8-8 13-8 7 0 13 6 13 14 0 11-9 20-26 32z" fill="#f0dcc2"/>
+              <path d="M96 111c-10-7-15-13-15-19 0-5 3-8 7-8 3 0 6 2 8 5 2-3 5-5 8-5 4 0 7 3 7 8 0 6-5 12-15 19z" fill="#b98556" opacity=".6"/>
+            </g>
+            <g transform="rotate(-18 60 160)">
+              <rect x="52" y="157" width="82" height="5" rx="2.5" fill="#dcdcdc"/>
+              <ellipse cx="44" cy="159.5" rx="15" ry="9.5" fill="#ececec" stroke="#b5b5b5"/>
+            </g>
+          </svg>
         </div>
-        <a href="https://github.com/ZohaibKhawar/RPG-game-python-edition">View the code</a>
-      </article>
 
-      <article class="project">
-        <time datetime="2023-02">2022 to 2023</time>
-        <div>
-          <h3>Python class assignments</h3>
-          <p>Programs from my first programming class, including a coffee shop that takes customer orders and a dice roller.</p>
-          <p class="built">Python</p>
-        </div>
-        <a href="https://github.com/ZohaibKhawar/First-GitHub-project">View the code</a>
-      </article>
+        <a class="prop card" href="https://github.com/ZohaibKhawar" aria-label="Zohaib's GitHub profile">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 5.5 11 7.5v12L2 17.5zM22 5.5 13 7.5v12l9-2z"/></svg>
+          <span>zohaib</span>
+          <small>github.com/ZohaibKhawar</small>
+        </a>
 
-      <article class="project">
-        <time datetime="2022-08">Aug 2022</time>
-        <div>
-          <h3>First GitHub upload</h3>
-          <p>The first code I ever put on GitHub: a short Python program I wrote while learning how repositories work.</p>
-          <p class="built">Python</p>
+        <div class="book">
+          <div class="book-shadow l"></div>
+          <div class="book-shadow r"></div>
+
+          <!-- Front cover, with the contents inside it -->
+          <div class="leaf board">
+            <div class="face front cover">
+              <div class="cover-art">
+                <span class="cover-name"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 5.5 11 7.5v12L2 17.5zM22 5.5 13 7.5v12l9-2z"/></svg>zohaib</span>
+                <span class="cover-sub">Projects, 2022 to 2026</span>
+              </div>
+              <button class="hit" type="button" data-go="1" aria-label="Open the book"></button>
+            </div>
+            <div class="face back">
+              <article class="page endsheet contents">
+                <div>
+                  <h2>Contents</h2>
+                  <p class="about">I'm a student learning to build software. This book holds what I've made so far, from my first Python exercises in 2022 to a calculus study site that is live today.</p>
+                </div>
+                <ol class="toc">
+                  <li><button type="button" data-go="1"><span>CalcLearners</span><i>1</i></button></li>
+                  <li><button type="button" data-go="2"><span>CalcBot</span><i>2</i></button></li>
+                  <li><button type="button" data-go="2"><span>Realm of Trials</span><i>3</i></button></li>
+                  <li><button type="button" data-go="3"><span>EC2 cost analysis</span><i>4</i></button></li>
+                  <li><button type="button" data-go="3"><span>Node app in a container</span><i>5</i></button></li>
+                  <li><button type="button" data-go="4"><span>GitHub Actions labs</span><i>6</i></button></li>
+                  <li><button type="button" data-go="4"><span>Vagrant and Git lab</span><i>7</i></button></li>
+                  <li><button type="button" data-go="5"><span>First Python programs</span><i>8</i></button></li>
+                </ol>
+              </article>
+            </div>
+          </div>
+
+          <!-- Pages 1 and 2 -->
+          <div class="leaf">
+            <div class="face front">
+              <article class="page p-calc">
+                <div class="p-text">
+                  <svg class="calc-logo" viewBox="0 0 48 48" aria-hidden="true"><rect x="2" y="2" width="44" height="44" rx="12" fill="#15233B"/><path d="M31 15C31 10.5 25.2 10 24.6 16L23.4 32C22.8 38 17 37.5 17 33" fill="none" stroke="#F0B429" stroke-width="4.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  <h2>CalcLearners</h2>
+                  <p class="line">A calculus study site with 43 lessons, a quiz for each one and more than 400 practice questions.</p>
+                </div>
+                <p class="meta"><span class="live">Live now</span><span>Python, Flask, SQLite</span></p>
+                <figure class="shot shot-scroll">
+                  <div class="shot-bar"><i></i><i></i><i></i><span>zohi29.pythonanywhere.com</span></div>
+                  <div class="shot-view"><img src="assets/calclearners-home.webp" width="1100" height="2062" alt="The CalcLearners home page. Its headline reads: Calculus, one slope at a time."></div>
+                </figure>
+                <span class="folio">1</span>
+              </article>
+              <button class="hit" type="button" data-sheet aria-label="See the details for CalcLearners"></button>
+              <template class="notes">
+                <p class="sheet-when">2026, live now</p>
+                <h3 id="sheet-title">CalcLearners</h3>
+                <p>A study site for a 12-week calculus course. It has 43 lessons with worked examples and a quiz each, more than 400 practice questions with every step shown, a formula sheet and a Q&amp;A forum. Accounts are optional and never ask for an email.</p>
+                <dl class="sheet-facts"><dt>Built with</dt><dd>Python, Flask, SQLite, HTML, CSS and JavaScript</dd></dl>
+                <p class="sheet-links"><a class="btn" href="https://zohi29.pythonanywhere.com">Open CalcLearners</a><a class="btn quiet" href="https://github.com/ZohaibKhawar/calculus-learning">View the code</a></p>
+              </template>
+            </div>
+            <div class="face back">
+              <article class="page p-bot">
+                <figure class="shot shot-bot">
+                  <div class="shot-view"><img src="assets/calclearners-calcbot.webp" width="799" height="506" alt="The CalcBot chat panel, open beside a lesson in dark mode."><span class="typing" aria-hidden="true"><i></i><i></i><i></i></span></div>
+                </figure>
+                <div class="p-text">
+                  <h2>CalcBot</h2>
+                  <p class="line">The study helper inside CalcLearners. Ask it a math question, or send a picture of a problem.</p>
+                </div>
+                <p class="meta"><span>Python, Claude API, JavaScript</span></p>
+                <span class="folio">2</span>
+              </article>
+              <button class="hit" type="button" data-sheet aria-label="See the details for CalcBot"></button>
+              <template class="notes">
+                <p class="sheet-when">2026, part of CalcLearners</p>
+                <h3 id="sheet-title">CalcBot</h3>
+                <p>The study helper built into CalcLearners. It opens as a side panel on any page. You can ask it a math question, how to study for a test or how the site works, and you can send it a picture of a problem or of your notes.</p>
+                <dl class="sheet-facts"><dt>Built with</dt><dd>Python, the Claude API and plain JavaScript</dd></dl>
+                <p class="sheet-links"><a class="btn" href="https://zohi29.pythonanywhere.com">Try it on CalcLearners</a><a class="btn quiet" href="https://github.com/ZohaibKhawar/calculus-learning">View the code</a></p>
+              </template>
+            </div>
+          </div>
+
+          <!-- Pages 3 and 4 -->
+          <div class="leaf">
+            <div class="face front">
+              <article class="page p-rpg">
+                <div class="p-text">
+                  <h2>Realm of Trials</h2>
+                  <p class="line">A text RPG for the terminal. Pick one of five heroes and fight through ten stages.</p>
+                </div>
+                <p class="meta"><span>Python</span></p>
+                <pre class="term" aria-hidden="true"><span style="--n:0">  STAGE 5 - BOSS: Gorgath the Stone Titan (500 HP)</span><span style="--n:1">  Recommended level: 18+ (you are level 18)</span><span style="--n:2">  Fight the boss? (y/n) &gt; y</span><span style="--n:3">&nbsp;</span><span style="--n:4">--- Turn 4 ---</span><span style="--n:5">You: 58/95 HP   |   Gorgath the Stone Titan: 128/500 HP</span><span style="--n:6">1) Attack   2) Fireball (ready)   3) Defend   4) Use item</span><span style="--n:7">&gt; 2</span><span style="--n:8">  You use Fireball!</span><span style="--n:9">  You blast the enemy for 186 damage!</span><span style="--n:10">&nbsp;</span><span class="win" style="--n:11">  VICTORY! You defeated Gorgath the Stone Titan!</span><span style="--n:12">  +400 XP</span></pre>
+                <span class="folio">3</span>
+              </article>
+              <button class="hit" type="button" data-sheet aria-label="See the details for Realm of Trials"></button>
+              <template class="notes">
+                <p class="sheet-when">2026</p>
+                <h3 id="sheet-title">Realm of Trials</h3>
+                <p>A text RPG you play in the terminal. Pick one of five heroes, each with its own special move. Train, level up and buy healing items, then clear ten stages with a boss waiting on stage 5 and stage 10.</p>
+                <dl class="sheet-facts"><dt>Built with</dt><dd>Python</dd></dl>
+                <p class="sheet-links"><a class="btn" href="https://github.com/ZohaibKhawar/RPG-game-python-edition">View the code</a></p>
+              </template>
+            </div>
+            <div class="face back">
+              <article class="page p-ec2">
+                <div class="plot-wrap">
+<svg class="plot" viewBox="0 0 300 226" role="img" aria-label="Box plot of hourly EC2 prices on a log scale. Spot prices sit lowest and Windows on-demand prices highest.">
+<line class="grid" x1="40" x2="296" y1="178.4" y2="178.4"/><text class="tick" x="35" y="181.20000000000002" text-anchor="end">$0.001</text>
+<line class="grid" x1="40" x2="296" y1="149.4" y2="149.4"/><text class="tick" x="35" y="152.20000000000002" text-anchor="end">$0.01</text>
+<line class="grid" x1="40" x2="296" y1="120.3" y2="120.3"/><text class="tick" x="35" y="123.1" text-anchor="end">$0.10</text>
+<line class="grid" x1="40" x2="296" y1="91.3" y2="91.3"/><text class="tick" x="35" y="94.1" text-anchor="end">$1</text>
+<line class="grid" x1="40" x2="296" y1="62.3" y2="62.3"/><text class="tick" x="35" y="65.1" text-anchor="end">$10</text>
+<line class="grid" x1="40" x2="296" y1="33.2" y2="33.2"/><text class="tick" x="35" y="36.0" text-anchor="end">$100</text>
+<g class="box" style="--n:0">
+<line class="whisker" x1="65.6" x2="65.6" y1="62.6" y2="160.3"/><line class="whisker" x1="58.599999999999994" x2="72.6" y1="62.6" y2="62.6"/><line class="whisker" x1="58.599999999999994" x2="72.6" y1="160.3" y2="160.3"/>
+<rect x="50.599999999999994" y="73.4" width="30" height="31.5" fill="#66c2a5"/><line class="median" x1="50.599999999999994" x2="80.6" y1="85.7" y2="85.7"/>
+<circle class="out" cx="65.6" cy="53.2" r="1.9"/>
+<circle class="out" cx="65.6" cy="43.8" r="1.9"/>
+<circle class="out" cx="65.6" cy="34.3" r="1.9"/>
+<circle class="out" cx="65.6" cy="24.9" r="1.9"/>
+<circle class="out" cx="65.6" cy="15.5" r="1.9"/>
+</g>
+<text class="cat" x="65.6" y="205" text-anchor="middle">On<tspan x="65.6" dy="10">demand</tspan></text>
+<g class="box" style="--n:1">
+<line class="whisker" x1="116.8" x2="116.8" y1="68.4" y2="166.3"/><line class="whisker" x1="109.8" x2="123.8" y1="68.4" y2="68.4"/><line class="whisker" x1="109.8" x2="123.8" y1="166.3" y2="166.3"/>
+<rect x="101.8" y="79.1" width="30" height="31.5" fill="#fc8d62"/><line class="median" x1="101.8" x2="131.8" y1="91.5" y2="91.5"/>
+<circle class="out" cx="116.8" cy="59.0" r="1.9"/>
+<circle class="out" cx="116.8" cy="49.7" r="1.9"/>
+<circle class="out" cx="116.8" cy="40.3" r="1.9"/>
+<circle class="out" cx="116.8" cy="31.0" r="1.9"/>
+<circle class="out" cx="116.8" cy="21.6" r="1.9"/>
+</g>
+<text class="cat" x="116.8" y="205" text-anchor="middle">Linux<tspan x="116.8" dy="10">reserved</tspan></text>
+<g class="box" style="--n:2">
+<line class="whisker" x1="168.0" x2="168.0" y1="81.5" y2="182.9"/><line class="whisker" x1="161.0" x2="175.0" y1="81.5" y2="81.5"/><line class="whisker" x1="161.0" x2="175.0" y1="182.9" y2="182.9"/>
+<rect x="153.0" y="91.9" width="30" height="28.0" fill="#8da0cb"/><line class="median" x1="153.0" x2="183.0" y1="103.7" y2="103.7"/>
+<circle class="out" cx="168.0" cy="73.8" r="1.9"/>
+<circle class="out" cx="168.0" cy="66.1" r="1.9"/>
+<circle class="out" cx="168.0" cy="58.5" r="1.9"/>
+<circle class="out" cx="168.0" cy="50.8" r="1.9"/>
+<circle class="out" cx="168.0" cy="43.1" r="1.9"/>
+</g>
+<text class="cat" x="168.0" y="205" text-anchor="middle">Linux<tspan x="168.0" dy="10">spot</tspan></text>
+<g class="box" style="--n:3">
+<line class="whisker" x1="219.2" x2="219.2" y1="54.0" y2="152.0"/><line class="whisker" x1="212.2" x2="226.2" y1="54.0" y2="54.0"/><line class="whisker" x1="212.2" x2="226.2" y1="152.0" y2="152.0"/>
+<rect x="204.2" y="64.8" width="30" height="30.5" fill="#e78ac3"/><line class="median" x1="204.2" x2="234.2" y1="76.6" y2="76.6"/>
+<circle class="out" cx="219.2" cy="46.1" r="1.9"/>
+<circle class="out" cx="219.2" cy="38.1" r="1.9"/>
+<circle class="out" cx="219.2" cy="30.2" r="1.9"/>
+<circle class="out" cx="219.2" cy="22.2" r="1.9"/>
+<circle class="out" cx="219.2" cy="14.3" r="1.9"/>
+</g>
+<text class="cat" x="219.2" y="205" text-anchor="middle">Windows<tspan x="219.2" dy="10">on demand</tspan></text>
+<g class="box" style="--n:4">
+<line class="whisker" x1="270.4" x2="270.4" y1="57.6" y2="156.0"/><line class="whisker" x1="263.4" x2="277.4" y1="57.6" y2="57.6"/><line class="whisker" x1="263.4" x2="277.4" y1="156.0" y2="156.0"/>
+<rect x="255.39999999999998" y="67.9" width="30" height="30.1" fill="#a6d854"/><line class="median" x1="255.39999999999998" x2="285.4" y1="79.4" y2="79.4"/>
+<circle class="out" cx="270.4" cy="50.0" r="1.9"/>
+<circle class="out" cx="270.4" cy="42.4" r="1.9"/>
+<circle class="out" cx="270.4" cy="34.8" r="1.9"/>
+<circle class="out" cx="270.4" cy="27.3" r="1.9"/>
+<circle class="out" cx="270.4" cy="19.7" r="1.9"/>
+</g>
+<text class="cat" x="270.4" y="205" text-anchor="middle">Windows<tspan x="270.4" dy="10">reserved</tspan></text>
+</svg>
+                </div>
+                <div class="p-text">
+                  <h2>EC2 cost analysis</h2>
+                  <p class="line">861 Amazon EC2 instance types compared by hourly price, and a model that predicts the on-demand cost.</p>
+                </div>
+                <p class="meta"><span>pandas, scikit-learn, Streamlit</span></p>
+                <span class="folio">4</span>
+              </article>
+              <button class="hit" type="button" data-sheet aria-label="See the details for EC2 cost analysis"></button>
+              <template class="notes">
+                <p class="sheet-when">2026, cloud course lab</p>
+                <h3 id="sheet-title">EC2 cost analysis</h3>
+                <p>A Streamlit dashboard that studies the hourly prices of 861 Amazon EC2 instance types. It cleans the data, compares on-demand, reserved and spot prices, looks closely at the T2 and T3 families, and fits a linear model that predicts the on-demand cost.</p>
+                <dl class="sheet-facts"><dt>Built with</dt><dd>Python, pandas, seaborn, scikit-learn and Streamlit</dd></dl>
+                <p class="sheet-links"><a class="btn" href="https://github.com/ZohaibKhawar/Analyzing_Ec2">View the code</a></p>
+              </template>
+            </div>
+          </div>
+
+          <!-- Pages 5 and 6 -->
+          <div class="leaf">
+            <div class="face front">
+              <article class="page p-node">
+                <div class="crates" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i class="drop"></i></div>
+                <div class="p-text">
+                  <h2>Node app in a container</h2>
+                  <p class="line">An Express app packaged with Docker. Every push to main builds the image and sends it to Docker Hub.</p>
+                </div>
+                <ol class="pipe" aria-label="Pipeline steps">
+                  <li style="--n:0">Checkout</li>
+                  <li style="--n:1">Log in to Docker Hub</li>
+                  <li style="--n:2">Build and push image</li>
+                  <li class="todo" style="--n:3">Deploy, not wired up yet</li>
+                </ol>
+                <span class="folio">5</span>
+              </article>
+              <button class="hit" type="button" data-sheet aria-label="See the details for Node app in a container"></button>
+              <template class="notes">
+                <p class="sheet-when">2026, cloud course lab</p>
+                <h3 id="sheet-title">Node app in a container</h3>
+                <p>An Express app packaged with Docker. A GitHub Actions workflow builds the image on every push to main and sends it to Docker Hub. The deploy job is a placeholder for now, so nothing is released to a server yet.</p>
+                <dl class="sheet-facts"><dt>Built with</dt><dd>Node.js, Express, Docker and GitHub Actions</dd></dl>
+                <p class="sheet-links"><a class="btn" href="https://github.com/ZohaibKhawar/nodejs-container-app">View the code</a></p>
+              </template>
+            </div>
+            <div class="face back">
+              <article class="page p-ci">
+                <ul class="runs" aria-label="Workflows">
+                  <li style="--n:0"><b>Hello GitHub Actions</b><code>github-actions-lab1</code></li>
+                  <li style="--n:1"><b>Python Application</b><code>github-actions-python</code></li>
+                  <li style="--n:2"><b>Python Tests</b><code>calculator-ci</code></li>
+                  <li style="--n:3"><b>Flask CI</b><code>flask-ci</code></li>
+                </ul>
+                <div class="p-text">
+                  <h2>GitHub Actions labs</h2>
+                  <p class="line">Four workflows, each one step further: say hello, run a script, run unit tests, then build and test a Flask app.</p>
+                </div>
+                <p class="meta"><span>GitHub Actions, pytest, Flask</span></p>
+                <span class="folio">6</span>
+              </article>
+              <button class="hit" type="button" data-sheet aria-label="See the details for GitHub Actions labs"></button>
+              <template class="notes">
+                <p class="sheet-when">2026, cloud course lab</p>
+                <h3 id="sheet-title">GitHub Actions labs</h3>
+                <p>Four small workflows, each one step further than the last: print details about the runner on every push, run a Python script, run unit tests with pytest, then install, build and test a Flask app. In the testing lab I broke a function on purpose to watch the run fail, then fixed it.</p>
+                <dl class="sheet-facts"><dt>Built with</dt><dd>GitHub Actions, Python, pytest and Flask</dd></dl>
+                <p class="sheet-links"><a class="btn" href="https://github.com/ZohaibKhawar/flask-ci">Flask CI</a><a class="btn quiet" href="https://github.com/ZohaibKhawar/calculator-ci">Python Tests</a><a class="btn quiet" href="https://github.com/ZohaibKhawar/github-actions-python">Python Application</a><a class="btn quiet" href="https://github.com/ZohaibKhawar/github-actions-lab1">Hello GitHub Actions</a></p>
+              </template>
+            </div>
+          </div>
+
+          <!-- Pages 7 and 8 -->
+          <div class="leaf">
+            <div class="face front">
+              <article class="page p-vagrant">
+                <div class="p-text">
+                  <h2>Vagrant and Git lab</h2>
+                  <p class="line">One Vagrantfile builds an Ubuntu server, installs Apache and Git, and serves a web page from it.</p>
+                </div>
+                <p class="meta"><span>Vagrant, VirtualBox, Git, shell</span></p>
+                <pre class="code" aria-hidden="true"><span style="--n:0">Vagrant.configure("2") do |config|</span><span style="--n:1">  config.vm.box = "hashicorp/bionic64"</span><span style="--n:2">  config.vm.network "private_network",</span><span style="--n:2">    ip: "192.168.33.10"</span><span style="--n:3">  config.vm.provision "shell", inline: &lt;&lt;-SHELL</span><span style="--n:4">    sudo apt-get update</span><span style="--n:5">    sudo apt-get install -y apache2 git</span><span style="--n:6">    echo "Hello from the updated Vagrant setup" |</span><span style="--n:6">      sudo tee /var/www/html/index.html</span><span style="--n:7">  SHELL</span><span style="--n:8">end</span></pre>
+                <div class="served" aria-hidden="true"><span>192.168.33.10</span><b>Hello from the updated Vagrant setup</b></div>
+                <span class="folio">7</span>
+              </article>
+              <button class="hit" type="button" data-sheet aria-label="See the details for Vagrant and Git lab"></button>
+              <template class="notes">
+                <p class="sheet-when">2026, cloud course lab</p>
+                <h3 id="sheet-title">Vagrant and Git lab</h3>
+                <p>A virtual machine described in code. One Vagrantfile builds an Ubuntu server, installs Apache and Git, and serves a web page from it at a private address. Git tracks every change to the file.</p>
+                <dl class="sheet-facts"><dt>Built with</dt><dd>Vagrant, VirtualBox, Git and shell</dd></dl>
+                <p class="sheet-links"><a class="btn" href="https://github.com/ZohaibKhawar/vagrant-git-lab">View the code</a></p>
+              </template>
+            </div>
+            <div class="face back">
+              <article class="page p-first">
+                <div class="dice" aria-hidden="true">
+                  <i style="--n:0"><b></b><b></b><b></b><b></b></i>
+                  <i style="--n:1"><b></b><b></b><b></b><b></b></i>
+                  <i style="--n:2"><b></b><b></b><b></b><b></b></i>
+                  <code>Player 1 rolls: [4, 4, 4]<br>Player 1 wins!</code>
+                </div>
+                <div class="p-text">
+                  <h2>First Python programs</h2>
+                  <p class="line">From my first programming class: a coffee shop that takes orders, and a dice game that rolls until someone gets three of a kind.</p>
+                </div>
+                <p class="meta"><span>Python, 2022 to 2023</span></p>
+                <span class="folio">8</span>
+              </article>
+              <button class="hit" type="button" data-sheet aria-label="See the details for First Python programs"></button>
+              <template class="notes">
+                <p class="sheet-when">2022 to 2023</p>
+                <h3 id="sheet-title">First Python programs</h3>
+                <p>Programs from my first programming class: a coffee shop that takes customer orders, and a dice game where two players keep rolling three dice until one of them gets three of a kind. The other repository holds the first code I ever put on GitHub.</p>
+                <dl class="sheet-facts"><dt>Built with</dt><dd>Python</dd></dl>
+                <p class="sheet-links"><a class="btn" href="https://github.com/ZohaibKhawar/First-GitHub-project">View the class programs</a><a class="btn quiet" href="https://github.com/ZohaibKhawar/new-github-setup">View my first upload</a></p>
+              </template>
+            </div>
+          </div>
+
+          <!-- Back cover, with the last page inside it -->
+          <div class="leaf board">
+            <div class="face front">
+              <article class="page endsheet p-end">
+                <h2>That's the book so far.</h2>
+                <p class="line">I add to it as I build. New work shows up on GitHub first.</p>
+                <p class="end-links"><a class="btn" href="https://github.com/ZohaibKhawar">Open my GitHub profile</a><button class="btn quiet" type="button" data-go="0">Back to the cover</button></p>
+                <p class="colophon">Made by Zohaib with plain HTML, CSS and JavaScript.</p>
+              </article>
+            </div>
+            <div class="face back cover">
+              <div class="cover-art"><span class="cover-name small"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 5.5 11 7.5v12L2 17.5zM22 5.5 13 7.5v12l9-2z"/></svg></span></div>
+              <button class="hit" type="button" data-go="0" aria-label="Back to the front cover"></button>
+            </div>
+          </div>
         </div>
-        <a href="https://github.com/ZohaibKhawar/new-github-setup">View the code</a>
-      </article>
-    </section>
+      </div>
+
+      <div class="vignette"></div>
+    </div>
+
+    <nav class="pager" aria-label="Pages">
+      <button type="button" data-prev aria-label="Previous pages"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 5.5 8 12l6.5 6.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <output aria-live="polite">Front cover</output>
+      <button type="button" data-next aria-label="Next pages"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.5 5.5 16 12l-6.5 6.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    </nav>
+
+    <div class="track"></div>
   </main>
 
-  <footer class="wrap">
-    <span>Made by Zohaib</span>
-    <a href="https://github.com/ZohaibKhawar">github.com/ZohaibKhawar</a>
-  </footer>
+  <dialog class="sheet" aria-labelledby="sheet-title">
+    <div class="sheet-paper">
+      <button class="sheet-close" type="button" aria-label="Close" autofocus>&times;</button>
+      <div class="sheet-body"></div>
+    </div>
+  </dialog>
+
+  <noscript>
+    <style>.stage, .pager, .track, .intro p { display: none; } .intro { position: static; padding: 6rem 1.5rem 1rem; } .plain { padding: 0 1.5rem 3rem; line-height: 1.7; }</style>
+    <div class="plain">
+      <p>This portfolio is an interactive book, and it needs JavaScript to turn the pages. Here are the same projects as a list.</p>
+      <ul>
+        <li><a href="https://zohi29.pythonanywhere.com">CalcLearners</a>, a calculus study site (<a href="https://github.com/ZohaibKhawar/calculus-learning">code</a>)</li>
+        <li><a href="https://github.com/ZohaibKhawar/RPG-game-python-edition">Realm of Trials</a>, a text RPG in Python</li>
+        <li><a href="https://github.com/ZohaibKhawar/Analyzing_Ec2">EC2 cost analysis</a>, a Streamlit dashboard</li>
+        <li><a href="https://github.com/ZohaibKhawar/nodejs-container-app">Node app in a container</a>, with Docker and GitHub Actions</li>
+        <li><a href="https://github.com/ZohaibKhawar/flask-ci">GitHub Actions labs</a></li>
+        <li><a href="https://github.com/ZohaibKhawar/vagrant-git-lab">Vagrant and Git lab</a></li>
+        <li><a href="https://github.com/ZohaibKhawar/First-GitHub-project">First Python programs</a></li>
+      </ul>
+    </div>
+  </noscript>
+
+  <script src="book.js" defer></script>
 </body>
 </html>
