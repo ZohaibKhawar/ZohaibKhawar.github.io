@@ -707,8 +707,9 @@ body::before {
 /* 9. RiverNark */
 .p-river { background: #062a2d; color: #e6fbf9; }
 .p-river h2 { font-size: 64px; color: #93e7e1; }
-.p-river .line { font-size: 21px; max-width: 14em; }
+.p-river .line { font-size: 19px; max-width: 17em; }
 .p-river .meta { color: #e3c63a; }
+.p-river .stack { color: #e6fbf9; }
 .river { position: absolute; left: 0; top: 0; width: 100%; height: 100%; }
 .river path { fill: none; stroke: #62d5ce; stroke-width: 2; opacity: 0.55; }
 .river path:nth-child(even) { opacity: 0.28; }
@@ -786,6 +787,7 @@ body::before {
 .sheet-facts dt { font-weight: 680; }
 .sheet-facts dd { margin: 0; }
 .sheet .sheet-links { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 0; }
+.sheet-body > :last-child { margin-bottom: 0; }
 .sheet-close {
   position: absolute;
   top: 0.55rem;
