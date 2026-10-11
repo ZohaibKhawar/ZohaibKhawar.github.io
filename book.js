@@ -47,11 +47,10 @@
   const ease = (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
 
   function spreadName(n) {
-    const lastPage = 2 * LEAVES - 4;
     if (n <= 0) return "Front cover";
     if (n >= LEAVES) return "Back cover";
     if (n === 1) return "Contents and page 1";
-    if (n === LEAVES - 1) return `Page ${lastPage} and the end`;
+    if (n === LEAVES - 1) return "Last page";
     return `Pages ${2 * n - 2} and ${2 * n - 1}`;
   }
 
