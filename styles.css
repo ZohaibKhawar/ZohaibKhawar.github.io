@@ -717,6 +717,26 @@ body::before {
 .face:hover .river path:nth-child(even), .face.is-live .river path:nth-child(even) { animation-duration: 4.4s; animation-direction: alternate-reverse; }
 @keyframes flow { from { transform: translateX(-34px); } to { transform: translateX(34px); } }
 
+/* 10. Trading Bot */
+.p-trade { background: #0e1117; color: #e8ecf2; }
+.candles { position: absolute; left: 30px; top: 92px; width: 284px; height: auto; overflow: visible; }
+.candles .level { stroke: #f0b94a; stroke-width: 1.2; stroke-dasharray: 5 4; opacity: 0.85; }
+.candles .tag { fill: #f0b94a; font: 600 10px var(--mono); }
+.candles g { transform-box: fill-box; transform-origin: 50% 50%; }
+.candles .up { color: #26a69a; }
+.candles .down { color: #ef5350; }
+.candles g line { stroke: currentColor; stroke-width: 1.4; }
+.candles g rect { fill: currentColor; }
+.p-trade .p-text { margin-left: 306px; width: 250px; padding-top: 22px; }
+.p-trade h2 { font-size: 52px; color: #f0b94a; }
+.p-trade .line { font-size: 16.5px; color: #c4ccd8; }
+.p-trade .meta { left: 344px; color: #f0b94a; }
+.p-trade .stack { color: #e8ecf2; }
+.face:hover .candles g, .face.is-live .candles g {
+  animation: grow 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  animation-delay: calc(var(--n) * 70ms);
+}
+
 /* Last page */
 .p-end { padding: 50px 46px; }
 .p-end h2 { font-size: 40px; max-width: 9em; }

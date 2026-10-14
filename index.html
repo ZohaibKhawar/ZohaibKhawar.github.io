@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Zohaib's GitHub Portfolio</title>
-  <meta name="description" content="Projects by Zohaib, bound in a book you can flip through: a calculus study site, a text RPG in Python, cloud and CI labs, and coursework from 2022 to today.">
+  <meta name="description" content="Projects by Zohaib, bound in a book you can flip through: a calculus study site, a text RPG in Python, a paper trading bot, cloud and CI labs, and coursework from 2022 to today.">
   <meta name="theme-color" content="#070606">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='5' fill='%230b0b0c'/%3E%3Cpath d='M3 6.5 11 8v10.5L3 17zM21 6.5 13 8v10.5l8-1.5z' fill='%23d6d2c9'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -116,6 +116,7 @@
                   <li><button type="button" data-go="4"><span>Vagrant and Git lab</span><i>7</i></button></li>
                   <li><button type="button" data-go="5"><span>First Python programs</span><i>8</i></button></li>
                   <li><button type="button" data-go="5"><span>RiverNark</span><i>9</i></button></li>
+                  <li><button type="button" data-go="6"><span>Trading Bot</span><i>10</i></button></li>
                 </ol>
               </article>
             </div>
@@ -370,7 +371,7 @@
             </div>
           </div>
 
-          <!-- Page 9 and the last page -->
+          <!-- Pages 9 and 10 -->
           <div class="leaf">
             <div class="face front">
               <article class="page p-river">
@@ -396,18 +397,42 @@
               </template>
             </div>
             <div class="face back">
-              <article class="page p-end">
-                <h2>That's the book so far.</h2>
-                <p class="line">I add to it as I build. New work shows up on GitHub first.</p>
-                <p class="end-links"><a class="btn" href="https://github.com/ZohaibKhawar">Open my GitHub profile</a><button class="btn quiet" type="button" data-go="0">Back to the cover</button></p>
+              <article class="page p-trade">
+                <svg class="candles" viewBox="0 40 280 184" aria-hidden="true">
+                  <line class="level" x1="0" x2="280" y1="74" y2="74"/>
+                  <text class="tag" x="0" y="66">previous day high</text>
+                  <g class="up" style="--n:0"><line x1="10" x2="10" y1="160" y2="210"/><rect x="5" y="170" width="10" height="30"/></g>
+                  <g class="down" style="--n:1"><line x1="30" x2="30" y1="158" y2="195"/><rect x="25" y="170" width="10" height="15"/></g>
+                  <g class="up" style="--n:2"><line x1="50" x2="50" y1="140" y2="192"/><rect x="45" y="150" width="10" height="35"/></g>
+                  <g class="up" style="--n:3"><line x1="70" x2="70" y1="118" y2="158"/><rect x="65" y="128" width="10" height="22"/></g>
+                  <g class="down" style="--n:4"><line x1="90" x2="90" y1="112" y2="148"/><rect x="85" y="128" width="10" height="12"/></g>
+                  <g class="up" style="--n:5"><line x1="110" x2="110" y1="96" y2="146"/><rect x="105" y="110" width="10" height="30"/></g>
+                  <g class="up" style="--n:6"><line x1="130" x2="130" y1="80" y2="118"/><rect x="125" y="92" width="10" height="18"/></g>
+                  <g class="down" style="--n:7"><line x1="150" x2="150" y1="84" y2="112"/><rect x="145" y="92" width="10" height="12"/></g>
+                  <g class="down" style="--n:8"><line x1="170" x2="170" y1="56" y2="110"/><rect x="165" y="96" width="10" height="10"/></g>
+                  <g class="down" style="--n:9"><line x1="190" x2="190" y1="100" y2="146"/><rect x="185" y="106" width="10" height="34"/></g>
+                  <g class="up" style="--n:10"><line x1="210" x2="210" y1="122" y2="150"/><rect x="205" y="128" width="10" height="12"/></g>
+                  <g class="down" style="--n:11"><line x1="230" x2="230" y1="124" y2="178"/><rect x="225" y="128" width="10" height="42"/></g>
+                  <g class="down" style="--n:12"><line x1="250" x2="250" y1="164" y2="206"/><rect x="245" y="170" width="10" height="26"/></g>
+                  <g class="up" style="--n:13"><line x1="270" x2="270" y1="176" y2="214"/><rect x="265" y="184" width="10" height="12"/></g>
+                </svg>
+                <div class="p-text">
+                  <h2>Trading Bot</h2>
+                  <p class="line">A bot that trades gold and USD/JPY on a practice account. It looks for smart money setups and learns from every trade it closes.</p>
+                </div>
+                <p class="meta"><span>Paper money only</span><span class="stack">Python, Flask, pandas</span></p>
+                <span class="folio">10</span>
               </article>
             </div>
           </div>
 
-          <!-- Back cover -->
+          <!-- Back cover, with the closing page inside it -->
           <div class="leaf board">
             <div class="face front">
-              <article class="page endsheet p-colophon">
+              <article class="page endsheet p-end">
+                <h2>That's the book so far.</h2>
+                <p class="line">I add to it as I build. New work shows up on GitHub first.</p>
+                <p class="end-links"><a class="btn" href="https://github.com/ZohaibKhawar">Open my GitHub profile</a><button class="btn quiet" type="button" data-go="0">Back to the cover</button></p>
                 <p class="colophon">Made by Zohaib with plain HTML, CSS and JavaScript.</p>
               </article>
             </div>
@@ -451,6 +476,7 @@
         <li><a href="https://github.com/ZohaibKhawar/vagrant-git-lab">Vagrant and Git lab</a></li>
         <li><a href="https://github.com/ZohaibKhawar/First-GitHub-project">First Python programs</a></li>
         <li>RiverNark, market news explained in plain words (in progress)</li>
+        <li>Trading Bot, a bot that trades gold and USD/JPY with pretend money</li>
       </ul>
     </div>
   </noscript>
