@@ -402,11 +402,11 @@ body::before {
   display: flex;
   align-items: baseline;
   width: 100%;
-  padding: 7.5px 0;
+  padding: 4.6px 0;
   border: 0;
   border-bottom: 1px solid rgba(23, 22, 26, 0.16);
   background: none;
-  font-size: 16px;
+  font-size: 15.5px;
   font-weight: 580;
   text-align: left;
   cursor: pointer;
@@ -736,6 +736,55 @@ body::before {
   animation: grow 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) both;
   animation-delay: calc(var(--n) * 70ms);
 }
+
+/* 11. Benefits Finder: paper, ink and one highlighter, like the site itself */
+.p-benefits { background: #fafbfd; color: #1c2554; }
+.p-benefits .p-text { width: 252px; }
+.p-benefits h2 { font-size: 46px; }
+.p-benefits .line { font-size: 16px; color: #4a5478; }
+.p-benefits .meta { color: #1c2554; }
+.p-benefits .stack { color: #4a5478; }
+.slip {
+  position: absolute;
+  right: 34px;
+  top: 58px;
+  width: 268px;
+  padding: 22px 20px 16px;
+  background: #eef2fa;
+  border-radius: 0 0 10px 10px;
+  font-size: 12.5px;
+  -webkit-mask: radial-gradient(circle at 8px 0, transparent 5px, #000 5.5px) 0 0 / 16px 100% repeat-x;
+          mask: radial-gradient(circle at 8px 0, transparent 5px, #000 5.5px) 0 0 / 16px 100% repeat-x;
+}
+.slip p { margin: 0; }
+.slip-title { margin-bottom: 6px !important; font-size: 13.5px; font-weight: 700; }
+.slip-row { display: flex; justify-content: space-between; padding: 7px 0; border-bottom: 1px solid #c9d3ec; font-variant-numeric: tabular-nums; }
+.slip-row b { font-weight: 650; }
+.slip-total { display: flex; justify-content: space-between; align-items: baseline; padding-top: 10px; font-weight: 700; }
+.slip-total mark {
+  position: relative;
+  z-index: 0;
+  padding: 0 3px;
+  background: none;
+  color: #1c2554;
+  font-size: 34px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
+}
+.slip-total mark::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: -2px; right: -3px; top: 8px; bottom: 3px;
+  background: #ffe45c;
+  border-radius: 6px 3px 7px 4px;
+  transform: rotate(-1.5deg) skewX(-6deg);
+  transform-origin: left center;
+}
+.face:hover .slip-total mark::before, .face.is-live .slip-total mark::before { animation: highlight 0.6s cubic-bezier(0.3, 0.7, 0.2, 1) both; }
+.face:hover .slip-row, .face.is-live .slip-row { animation: pop 0.4s ease-out both; animation-delay: calc(var(--n) * 90ms); }
+@keyframes highlight { from { transform: rotate(-1.5deg) skewX(-6deg) scaleX(0); } }
 
 /* Last page */
 .p-end { padding: 50px 46px; }
