@@ -737,7 +737,7 @@ body::before {
   animation-delay: calc(var(--n) * 70ms);
 }
 
-/* 11. Benefits Finder: paper, ink and one highlighter, like the site itself */
+/* 11. Claimable: paper, ink and one highlighter, like the site itself */
 .p-benefits { background: #fafbfd; color: #1c2554; }
 .p-benefits .p-text { width: 252px; }
 .p-benefits h2 { font-size: 46px; }
